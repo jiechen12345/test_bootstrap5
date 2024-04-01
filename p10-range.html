@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--固定的-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>p10-range</title>
+    <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
+    <script src="public/bs/js/bootstrap.bundle.js"></script>
+    <script src="public/js/holder.min.js"></script>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-4 row">
+        <label for="budget" class="col-form-label col-2">$$</label>
+        <div class="col-8">
+          <input type="text" class="form-control" id="budget" />
+        </div>
+      </div>
+      <div class="col-6">
+        <input type="range" class="form-range" id="budgetRange" value="0" min="0" max="10000" step="1000" />
+      </div>
+    </div>
+  </body>
+  <script>
+    var budgetRange = document.getElementById('budgetRange');
+    var budgetInput = document.getElementById('budget');
+    budgetRange.addEventListener('input', function () {
+      budgetInput.value = budgetRange.value;
+    });
+    budgetInput.addEventListener('input', function () {
+      var budgetValue = parseInt(budgetInput.value);
+      if (budgetValue >= 0 && budgetValue <= 10000) {
+        budgetRange.value = budgetValue;
+      }
+    });
+  </script>
+</html>

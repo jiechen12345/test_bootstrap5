@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--固定的-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>P2-flex</title>
+    <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
+    <style>
+      .main {
+        height: 100vh;
+        background: #555;
+        display: flex; /* 宣告是flex 排版 */
+        /* 水平排列 沒寫就是row */
+        flex-flow: row;
+        /* 垂直排列 */
+        /* flex-flow: column; */
+        /*在主軸上置中對齊*/
+        /* justify-content: center; */
+        /*在主軸上均分對齊*/
+        /* justify-content: space-evenly; */
+        /*在主軸上均分但兩邊稍微少一點*/
+        /* justify-content: space-around; */
+        /*在主軸上均分但兩邊不留白*/
+        /* justify-content: space-between; */
+        /*在主軸上開始處對齊 X軸就左邊 Y軸就上面*/
+        justify-content: flex-start;
+        /*在主軸上結束處對齊 X軸就右邊 Y軸就下面*/
+        /* justify-content: flex-end; */
+        /* 交叉軸開始位置對齊 */
+        align-items: flex-start;
+        /* 交叉軸上居中對齊 */
+        /* align-items: center; */
+        /* 交叉軸結束位置對齊 */
+        /* align-items: flex-end; */
+        /*如果超過自動換行*/
+        flex-wrap: wrap;
+        /*如果超過不會換行 硬擠*/
+        /* flex-wrap: nowrap;  */
+      }
+
+      .item {
+        width: 100px;
+        height: 100px;
+        background: #ff5;
+        display: flex; /* 宣告是flex 排版 */
+        /* Flex 元素在 Flex 容器中平均分配可用空間。 */
+        /* flex: 1; */
+        /* 文字置中 */
+        justify-content: center;
+        align-items: center;
+      }
+      .item2 {
+        /* Flex 元素在 Flex 容器中平均分配可用空間。 */
+        /* flex: 1; */
+      }
+      .item3 {
+        /* Flex 元素在 Flex 容器中平均分配可用空間。 */
+        /* flex: 2; */
+      }
+      /*針對螢幕寬度小於 767px 的設備進行調整 */
+      /* @media (max-width: 767px) {
+        .item {
+          width: 10%;
+          height: 10%;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="item">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+    </div>
+    <script src="public/bs/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

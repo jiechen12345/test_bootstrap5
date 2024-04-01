@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--固定的-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>p12-validation</title>
+    <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
+    <script src="public/js/jquery-3.7.1.js"></script>
+    <script src="public/bs/js/bootstrap.bundle.js"></script>
+    <script src="public/js/holder.min.js"></script>
+  </head>
+
+  <body>
+    <form class="row g-3 form" action="javaScript:;" method="post">
+      <div class="col-md-3 mx-2">
+        <label for="userName" class="form-label">Username</label>
+        <input type="text" class="form-control auth" id="userName" />
+        <!--feedback拿掉由程式控制-->
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col-md-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control auth" id="password" />
+        <!--直接寫-->
+        <div class="invalid-feedback">密碼至少6位</div>
+      </div>
+      <div class="col-md-3 mx-2">
+        <label for="sex" class="form-label">sex</label>
+        <select class="form-select auth" id="sex">
+          <option selected disabled value="">Choose...</option>
+          <option>B</option>
+          <option>G</option>
+        </select>
+        <!--直接寫-->
+        <div class="invalid-feedback">必選</div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input auth" type="checkbox" value="" id="agree" aria-describedby="invalidCheck3Feedback" />
+          <label class="form-check-label" for="agree"> Agree </label>
+          <!--直接寫-->
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
+  </body>
+  <script>
+    $('#userName').on('blur', function () {
+      //增加userName blur事件
+      userName_val = this.value;
+      if (userName_val.length < 4) {
+        //如果userName 值小於4
+        $(this).removeClass('is-valid').addClass('is-invalid'); //輸入框變成is-invalid樣式
+        $(this).next('.invalid-feedback').html('用戶名至少4碼'); //設定feedback的字眼
+        return;
+      }
+      if (userName_val == 'root') {
+        //正常call後端
+        $(this).removeClass('is-valid').addClass('is-invalid');
+        $(this).next('.invalid-feedback').html('用戶名重複');
+        return;
+      }
+      $(this).removeClass('is-invalid').addClass('is-valid');
+    });
+    $('#password').on('blur', function () {
+      password_val = this.value;
+      if (password_val.length < 6) {
+        $(this).removeClass('is-valid').addClass('is-invalid');
+        return;
+      }
+      $(this).removeClass('is-invalid').addClass('is-valid');
+    });
+    $('#sex').on('blur', function () {
+      sex_val = this.value;
+      if (!sex_val) {
+        $(this).removeClass('is-valid').addClass('is-invalid');
+        return;
+      }
+      $(this).removeClass('is-invalid').addClass('is-valid');
+    });
+    $('#agree').on('change', function () {
+      //增加agree change事件
+      agree_val = this.checked;
+      if (!agree_val) {
+        $(this).removeClass('is-valid').addClass('is-invalid');
+        return;
+      }
+      $(this).removeClass('is-invalid').addClass('is-valid');
+    });
+    //submit
+    $('.form').on('submit', function (event) {
+      //送出前監聽
+      let authElements = $('.auth'); //找出所有有寫auth class的元素
+      let isValid = true;
+
+      authElements.each(function () {
+        if (!$(this).hasClass('is-valid')) {
+          //如果其中有一個沒有is-valid的樣式
+          isValid = false; //就算驗證不過
+        }
+      });
+      if (!isValid) {
+        event.preventDefault(); //阻止事件繼續發生
+        $('#userName').blur(); //全部驗證一遍
+        $('#password').blur();
+        $('#sex').blur();
+        $('#agree').change();
+      }
+      //如果驗證過就送出
+      $(this).attr({ action: 'https://www.evergreen-logistics.com/GUEC/web/index.jsp' });
+    });
+  </script>
+</html>

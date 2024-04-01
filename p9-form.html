@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--固定的-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>p9-form</title>
+    <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
+    <script src="public/bs/js/bootstrap.bundle.js"></script>
+    <script src="public/js/holder.min.js"></script>
+  </head>
+
+  <div class="container">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+      <title>Bootstrap Form Tutorial</title>
+    </head>
+
+    <body class="container bg-light">
+      <div class="mb-3 row g-3 visually-hidden">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <div class="col-12 mb-2">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="readonly text" />
+          </div>
+          <div class="col-12 mb-2">
+            <input type="text" readonly class="form-control" id="staticEmail" value="readonly text" />
+          </div>
+          <div class="col-12 mb-2">
+            <input type="text" readonly class="form-control" placeholder="提示字" />
+          </div>
+        </div>
+      </div>
+      <div class="visually-hidden">
+        <input class="form-control" size="3" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." />
+        <datalist id="datalistOptions">
+          <option value="San Francisco"></option>
+          <option value="New York"></option>
+          <option value="Seattle"></option>
+          <option value="Los Angeles"></option>
+          <option value="Chicago"></option>
+          <option value="Chicago"></option>
+          <option value="Chicago"></option>
+        </datalist>
+
+        <select id="test" class="form-select" multiple size="3" aria-label="multiple select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="4">four</option>
+          <option value="5">five</option>
+        </select>
+      </div>
+
+      <div class="visually-hidden">
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Default file input example</label>
+          <input class="form-control" type="file" id="formFile" />
+        </div>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+          <input class="form-control" type="file" id="formFileMultiple" multiple />
+        </div>
+        <div class="mb-3">
+          <label for="formFileDisabled" class="form-label">Disabled file input example</label>
+          <input class="form-control" type="file" id="formFileDisabled" disabled />
+        </div>
+        <div class="mb-3">
+          <label for="formFileSm" class="form-label">Small file input example</label>
+          <input class="form-control form-control-sm" id="formFileSm" type="file" />
+        </div>
+        <div>
+          <label for="formFileLg" class="form-label">Large file input example</label>
+          <input class="form-control form-control-lg" id="formFileLg" type="file" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-check form-switch col-6">
+          <input name="switchtest" value="1" class="form-check-input" type="radio" id="flexSwitchCheckDefault" />
+          <label class="form-check-label" for="flexSwitchCheckDefault">switchtest1</label>
+        </div>
+        <div class="form-check form-switch col-6">
+          <input name="switchtest" value="2" class="form-check-input" type="radio" id="flexSwitchCheckDefault" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">switchtest2</label>
+        </div>
+      </div>
+      <div>
+        <div class="form-check form-check-inline form-switch">
+          <input name="switchtest" value="1" class="form-check-input" type="radio" id="flexSwitchCheckDefault" />
+          <label class="form-check-label" for="flexSwitchCheckDefault">switchtest1</label>
+        </div>
+        <div class="form-check form-check-inline form-switch">
+          <input name="switchtest" value="2" class="form-check-input" type="radio" id="flexSwitchCheckDefault" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">switchtest2</label>
+        </div>
+      </div>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+      <!-- Start Scritp for Form -->
+      <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict';
+          window.addEventListener(
+            'load',
+            function () {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener(
+                  'submit',
+                  function (event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  },
+                  false
+                );
+              });
+            },
+            false
+          );
+        })();
+      </script>
+      <!-- End Scritp for Form -->
+    </body>
+  </div>
+</html>
