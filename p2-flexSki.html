@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>P2-flex</title>
+    <title>P2-ski</title>
     <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
     <style>
       * {
@@ -13,7 +13,76 @@
       body {
         font-family: sans-serif;
         text-align: left;
-        background: #ddd;
+        background: #ececec;
+      }
+
+      #container {
+        /*1. 宣告flex 並且垂直排列 */
+        display: flex;
+        flex-flow: column;
+        justify-content: space-evenly;
+        /* flex-direction: column; */
+        /*2. 全滿視窗高度 */
+        min-height: 100vh;
+      }
+
+      main {
+        /*3. 宣告flex 並且水平排列 */
+        display: flex;
+        flex-flow: row;
+        /*4. 在主軸上均分 */
+        justify-content: space-around;
+        /*5. 佔比例3其他1 */
+        flex: 3;
+      }
+
+      main > A {
+        margin: 10px;
+        text-align: center;
+        padding: 0px;
+        border-radius: 5pt;
+        background: #fff;
+        box-shadow: 1px 2px 5px #807f7f;
+        /*6. 可以設定顯示順序 */
+        order: 1;
+      }
+
+      main > B {
+        margin: 10px;
+        text-align: center;
+        padding: 0px;
+        border-radius: 5pt;
+        background: #fff;
+        box-shadow: 1px 2px 5px #807f7f;
+
+        order: 2;
+      }
+
+      main > C {
+        margin: 10px;
+        text-align: center;
+        padding: 0px;
+        border-radius: 5pt;
+        background: #fff;
+        box-shadow: 1px 2px 5px #807f7f;
+        /* order: 2; */
+        order: 3;
+      }
+
+      header {
+        background: #ececec;
+      }
+
+      footer {
+        display: block;
+        margin: 10px;
+        padding: 5px;
+        min-height: 20px;
+        text-align: center;
+        vertical-align: center;
+        font-size: 12px;
+        vertical-align: text-bottom;
+        background: #ececec;
       }
 
       h4 {
@@ -37,70 +106,7 @@
         padding-left: 5%;
         padding-right: 3%;
         margin: 0;
-        padding-bottom: 15%;
-      }
-
-      #main {
-        min-height: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-around;
-      }
-
-      #main > B {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #c6c6c6;
-        /* flex: 3 1 33.3%; */
-        /* order: 2; */
-      }
-
-      #main > A {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #c6c6c6;
-        /* flex: 3 1 33.3%; */
-        /* order: 1; */
-      }
-
-      #main > C {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #c6c6c6;
-        /* flex: 3 1 33.3%;
-        order: 3; */
-      }
-
-      header {
-        display: block;
-        margin: 0px;
-        padding: 0px;
-        min-height: 100px;
-        border-radius: 0pt;
-        background: #ffffff;
-      }
-
-      footer {
-        display: block;
-        margin: 10px;
-        padding: 5px;
-        min-height: 100px;
-        border-radius: 5pt;
-        text-align: center;
-        vertical-align: center;
-        font-size: 12px;
-        vertical-align: text-bottom;
+        padding-bottom: 5%;
       }
 
       img {
@@ -109,16 +115,27 @@
         padding-top: 5%;
       }
 
+      /*7. CSS選擇器寫法 (a)直接 (b)#  (c).   */
       header > img {
+        /*8. 前面提到的父容器   */
+        width: 20%;
+        /*9. auto代表照原比例   */
         height: auto;
-        width: 18%;
         padding: 3% 1% 2% 5%;
       }
 
-      @media all and (max-width: 640px) {
-        #main,
-        #page {
-          flex-direction: column;
+      .noticetext {
+        color: rgb(145, 49, 49);
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          display: flex;
+          flex-flow: column;
+        }
+        header > img {
+          width: 40%;
         }
         #main > A,
         #main > B,
@@ -134,13 +151,13 @@
       }
     </style>
   </head>
-
+  <!--1. 看結構header main footer  -->
   <body>
-    <div class="container">
+    <div id="container" class="container">
       <header>
         <img src="public/img/ski_noimage.png" alt="" />
       </header>
-      <div id="main">
+      <main>
         <a>
           <img src="public/img/a2.jpg" alt="" />
           <h4>室內滑雪課程預約 SKI</h4>
@@ -157,9 +174,13 @@
           <img src="public/img/a1.jpg" alt="" />
           <h4>海外滑雪團報名</h4>
           <h4>在日本雪場擁有多位合作夥伴及學校， 學成後針對您的學習狀態為您訂製專屬行程，為旅途加分！</h4>
-          <p>開團:日本白馬滑雪5天4夜 北海道留壽都滑雪5天4夜</p>
+          <p class="noticetext">已成團:日本白馬滑雪5天4夜 & 北海道留壽都滑雪5天4夜</p>
         </C>
-      </div>
+      </main>
+      <footer>
+        <div>Copyright© All Rights Reserved by Evergreen Logistics Corp</div>
+        <div><a href="#">Copyright</a> / <a href="#">Privacy Policy</a></div>
+      </footer>
     </div>
   </body>
 </html>
