@@ -1,188 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>P2-ski</title>
-    <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
-    <style>
-      * {
-        margin: 0;
-      }
 
-      body {
-        font-family: sans-serif;
-        text-align: left;
-        background: #ececec;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>P2-ski</title>
+  <link rel="stylesheet" href="public/bs/css/bootstrap.min.css" />
+  <style>
+    * {
+      margin: 0;
+    }
 
-      #container {
-        /*1. 宣告flex 並且垂直排列 */
-        display: flex;
-        flex-flow: column;
-        justify-content: space-evenly;
-        /* flex-direction: column; */
-        /*2. 全滿視窗高度 */
-        min-height: 100vh;
-      }
+    body {
+      font-family: sans-serif;
+      text-align: left;
+      background: #ececec;
+    }
 
+    #container {
+      /*1. 宣告flex 並且垂直排列 */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      /*2. 全滿視窗高度 */
+      min-height: 100vh;
+    }
+
+    main {
+      /*3. 宣告flex 並且水平排列 */
+      display: flex;
+      flex-flow: row;
+      /*4. 在主軸上均分 */
+      justify-content: space-around;
+      /*5. 佔比例3其他1 */
+      flex: 2;
+    }
+
+    main>A {
+      margin: 10px;
+      text-align: center;
+      padding: 0px;
+      border-radius: 5pt;
+      background: #fff;
+      box-shadow: 1px 2px 5px #807f7f;
+      /*6. 可以設定顯示順序 */
+      order: 1;
+    }
+
+    main>B {
+      margin: 10px;
+      text-align: center;
+      padding: 0px;
+      border-radius: 5pt;
+      background: #fff;
+      box-shadow: 1px 2px 5px #807f7f;
+
+      order: 2;
+    }
+
+    main>C {
+      margin: 10px;
+      text-align: center;
+      padding: 0px;
+      border-radius: 5pt;
+      background: #fff;
+      box-shadow: 1px 2px 5px #807f7f;
+      /* order: 2; */
+      order: 3;
+    }
+
+    header {
+      background: #ececec;
+      flex: 1;
+    }
+
+    footer {
+      display: block;
+      margin: 10px;
+      padding: 5px;
+      min-height: 20px;
+      text-align: center;
+      vertical-align: center;
+      font-size: 12px;
+      vertical-align: text-bottom;
+      background: #ececec;
+      flex: 1;
+    }
+
+    h4 {
+      font-size: 20px;
+      font-family: sans-serif;
+      line-height: 25px;
+      text-align: left;
+      color: #313139;
+      padding-left: 5%;
+      padding-top: 5%;
+      padding-bottom: 3%;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      font-family: sans-serif;
+      line-height: 22px;
+      color: #313139;
+      text-align: left;
+      padding-left: 5%;
+      padding-right: 3%;
+      margin: 0;
+      padding-bottom: 5%;
+    }
+
+    img {
+      height: auto;
+      width: 90%;
+      padding-top: 5%;
+    }
+
+    /*7. CSS選擇器寫法 有哪些 (a)直接 (b)#  (c).   */
+    header>img {
+      /*8. 前面提到的以父容器作為比例標準   */
+      width: 20%;
+      /*9. auto代表照原比例   */
+      height: auto;
+      padding: 3% 1% 2% 5%;
+    }
+
+    .noticetext {
+      color: rgb(145, 49, 49);
+      font-weight: bold;
+    }
+
+    /*10. 監聽解析度低於768以下事件   */
+    @media (max-width: 768px) {
       main {
-        /*3. 宣告flex 並且水平排列 */
         display: flex;
-        flex-flow: row;
-        /*4. 在主軸上均分 */
-        justify-content: space-around;
-        /*5. 佔比例3其他1 */
-        flex: 2;
+        /*11. 變成直向排列   */
+        flex-flow: column;
       }
 
-      main > A {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #807f7f;
-        /*6. 可以設定顯示順序 */
-        order: 1;
+      header>img {
+        width: 40%;
       }
 
-      main > B {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #807f7f;
-
-        order: 2;
+      #main>A,
+      #main>B,
+      #main>C {
+        /* Return them to document order */
+        order: 0;
       }
 
-      main > C {
-        margin: 10px;
-        text-align: center;
-        padding: 0px;
-        border-radius: 5pt;
-        background: #fff;
-        box-shadow: 1px 2px 5px #807f7f;
-        /* order: 2; */
-        order: 3;
-      }
-
-      header {
-        background: #ececec;
-        flex: 1;
-      }
-
+      header,
       footer {
-        display: block;
-        margin: 10px;
-        padding: 5px;
-        min-height: 20px;
-        text-align: center;
-        vertical-align: center;
-        font-size: 12px;
-        vertical-align: text-bottom;
-        background: #ececec;
-        flex: 1;
+        min-height: 50px;
       }
+    }
+  </style>
+</head>
+<!--1. 看結構header main footer  -->
 
-      h4 {
-        font-size: 20px;
-        font-family: sans-serif;
-        line-height: 25px;
-        text-align: left;
-        color: #313139;
-        padding-left: 5%;
-        padding-top: 5%;
-        padding-bottom: 3%;
-        margin: 0;
-      }
+<body>
+  <div id="container" class="container">
+    <header>
+      <img src="public/img/ski_noimage.png" alt="" />
+    </header>
+    <main>
+      <a>
+        <img src="public/img/a2.jpg" alt="" />
+        <h4>室內滑雪課程預約 SKI</h4>
+        <h4>滑雪就在市中心，為出國做準備</h4>
+        <p>SKI(Skiing)就是使用兩個板子(雙板)加上雪杖正面朝前滑行</p>
+      </a>
+      <b>
+        <img src="public/img/a3.jpg" alt="" />
+        <h4>室內滑雪課程預約 SB</h4>
+        <h4>滑雪就在市中心，為出國做準備</h4>
+        <p>SB(Snowboard)則是雙腳綁在一個板子(單板)上需側身滑行</p>
+      </b>
+      <C>
+        <img src="public/img/a1.jpg" alt="" />
+        <h4>海外滑雪團報名</h4>
+        <h4>在日本雪場擁有多位合作夥伴及學校， 學成後針對您的學習狀態為您訂製專屬行程，為旅途加分！</h4>
+        <p class="noticetext">已成團:日本白馬滑雪5天4夜 & 北海道留壽都滑雪5天4夜</p>
+      </C>
+    </main>
+    <footer>
+      <div>Copyright© All Rights Reserved by Evergreen Logistics Corp</div>
+      <div><a href="#">Copyright</a> / <a href="#">Privacy Policy</a></div>
+    </footer>
+  </div>
+</body>
 
-      p {
-        font-size: 14px;
-        font-family: sans-serif;
-        line-height: 22px;
-        color: #313139;
-        text-align: left;
-        padding-left: 5%;
-        padding-right: 3%;
-        margin: 0;
-        padding-bottom: 5%;
-      }
-
-      img {
-        height: auto;
-        width: 90%;
-        padding-top: 5%;
-      }
-
-      /*7. CSS選擇器寫法 (a)直接 (b)#  (c).   */
-      header > img {
-        /*8. 前面提到的父容器   */
-        width: 20%;
-        /*9. auto代表照原比例   */
-        height: auto;
-        padding: 3% 1% 2% 5%;
-      }
-
-      .noticetext {
-        color: rgb(145, 49, 49);
-        font-weight: bold;
-      }
-
-      @media (max-width: 768px) {
-        main {
-          display: flex;
-          flex-flow: column;
-        }
-        header > img {
-          width: 40%;
-        }
-        #main > A,
-        #main > B,
-        #main > C {
-          /* Return them to document order */
-          order: 0;
-        }
-
-        header,
-        footer {
-          min-height: 50px;
-        }
-      }
-    </style>
-  </head>
-  <!--1. 看結構header main footer  -->
-  <body>
-    <div id="container" class="container">
-      <header>
-        <img src="public/img/ski_noimage.png" alt="" />
-      </header>
-      <main>
-        <a>
-          <img src="public/img/a2.jpg" alt="" />
-          <h4>室內滑雪課程預約 SKI</h4>
-          <h4>滑雪就在市中心，為出國做準備</h4>
-          <p>SKI(Skiing)就是使用兩個板子(雙板)加上雪杖正面朝前滑行</p>
-        </a>
-        <b>
-          <img src="public/img/a3.jpg" alt="" />
-          <h4>室內滑雪課程預約 SB</h4>
-          <h4>滑雪就在市中心，為出國做準備</h4>
-          <p>SB(Snowboard)則是雙腳綁在一個板子(單板)上需側身滑行</p>
-        </b>
-        <C>
-          <img src="public/img/a1.jpg" alt="" />
-          <h4>海外滑雪團報名</h4>
-          <h4>在日本雪場擁有多位合作夥伴及學校， 學成後針對您的學習狀態為您訂製專屬行程，為旅途加分！</h4>
-          <p class="noticetext">已成團:日本白馬滑雪5天4夜 & 北海道留壽都滑雪5天4夜</p>
-        </C>
-      </main>
-      <footer>
-        <div>Copyright© All Rights Reserved by Evergreen Logistics Corp</div>
-        <div><a href="#">Copyright</a> / <a href="#">Privacy Policy</a></div>
-      </footer>
-    </div>
-  </body>
 </html>
