@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <style>
-      body {
-        background-image: url('public/img/ilsp_index.jpg'); /* 背景圖片 */
-        background-size: cover; /* 背景圖片覆蓋整個畫面 */
-        background-position: center; /* 背景圖片置中 */
-        height: 100vh; /* 設定 body 的高度為 100% 視窗高度 */
-        margin: 0; /* 清除預設 margin */
-        display: flex; /* 使用 Flexbox 進行排版 */
-        flex-direction: column; /* 垂直方向排列 */
-        align-items: flex-start; /* 垂直靠上 */
-        justify-content: flex-start; /* 水平靠左 */
-      }
-      .btn-primary {
-        color: #fff;
-        background-color: rgb(127 127 127);
-        border-color: #a5b44c;
-      }
-      .logo {
-        width: 100%; /* 設定 LOGO 寬度為 100% */
-        max-width: 663px; /* LOGO 實際寬度 */
-        height: auto; /* 自動調整高度，保持比例 */
-        align-self: flex-start; /* LOGO 垂直靠上 */
-        margin-left: 20px; /* 左邊距增加 20px */
-        margin-top: 5px;
-      }
-      /*
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-image: url('public/img/ilsp_index.jpg');
+      /**1. 背景圖片 */
+      background-size: cover;
+      /**2. 背景圖片覆蓋整個畫面 */
+      background-position: center;
+      /* 背景圖片置中 */
+      height: 100vh;
+      /**3. 設定 body 的高度為 100% 視窗高度 */
+      margin: 0;
+      /* 清除預設 margin */
+      display: flex;
+      /**4. 使用 Flexbox 進行排版 */
+      flex-direction: column;
+      /**5. 垂直方向排列 */
+      align-items: flex-start;
+      /**6. 垂直靠上 */
+      justify-content: flex-start;
+      /**7. 水平靠左 */
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: rgb(127 127 127);
+      border-color: #a5b44c;
+    }
+
+    .logo {
+      width: 663px;
+      /** 8.這邊遵照需求寫死，後面再變化 */
+      height: auto;
+      /**9. 寬高的auto都代表照比例自動調整高度，保持比例 */
+      align-self: flex-start;
+      /* LOGO 垂直靠上 */
+      margin-left: 20px;
+      /* 左邊距增加 20px */
+      margin-top: 5px;
+    }
+
+    /*
       .container {
         background-color: rgba(255, 255, 255, 0.8); /* 設定容器背景顏色及透明度
         padding: 20px; /* 內邊距
@@ -40,114 +56,159 @@
         margin: 70px 20px 0 auto; /* 調整邊距以確保垂直置中、水平靠右
       }
       */
+    .container {
+      background-color: rgb(83, 83, 83, 0.9);
+      /* 設定容器背景顏色及透明度 */
+      padding: 20px;
+      /* 內邊距 */
+      border: 1px solid #ccc;
+      /* 邊框 */
+      border-radius: 5px;
+      /* 圓角 */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      /* 陰影效果 */
+      max-width: 400px;
+      /* 最大寬度 */
+      margin: 70px 20px 0 auto;
+      /* 調整邊距以確保垂直置中、水平靠右 */
+    }
+
+    .form-group {
+      /*text-align: right;  文字右對齊 */
+      margin-bottom: 20px;
+      /* 調整底邊距 */
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      /**10.* 調整底邊距 */
+    }
+
+    .form-group button {
+      width: 100%;
+      /* 讓按鈕寬度佔滿父元素 */
+      margin-top: 2px;
+    }
+
+    /*   .form-group button + button {
+           margin-top: 5px; 調整第二個按鈕的上邊距 
+      }*/
+    .label {
+      color: #ffffff;
+    }
+
+    .form-group label {
+      color: #ffffff;
+      margin-bottom: 5px;
+      /* 調整底邊距，縮短 LABEL 和輸入框之間的距離 */
+    }
+
+   
+    .footer {
+      position: fixed;
+      /**11. 固定位置他的容器是視口不是父元素 */
+      bottom: 10px;
+      /* 頁面底部與底部的距離為 10 */
+      left: 50%;
+      /**12. 常見的置中手法定位點在左邊數來50%距離  */
+      transform: translateX(-50%);
+      /** translate 往回自己的長度50% 確保置中 */
+
+      /**13. 置中  Flexbox 容器內才能用的屬性  */
+      /* align-self: center; */
+      /* 水平置中 */
+      width: 95%;
+      /* 寬度不佔滿整個頁面 */
+      background-color: rgba(255, 255, 255, 0.9);
+      /* 白 */
+      color: rgb(75, 75, 75);
+      /* 白色字體 */
+      text-align: left;
+      /* 文字置中 */
+      padding: 5px 5px 5px 15px;
+      /* 內邊距 */
+      height: 40px;
+
+
+    }
+
+    /** 14.監聽螢幕寬度小於 767px 的設備進行調整 */
+    @media (max-width: 767px) {
+      body {
+        align-items: flex-start;
+        /* 垂直靠上 */
+      }
+
+      .logo {
+        width: 100%;
+        /* 在手機模式下寬度 100% */
+        margin-left: 0;
+        /* 移除左邊距 */
+      }
+
       .container {
-        background-color: rgb(83, 83, 83, 0.9); /* 設定容器背景顏色及透明度 */
-        padding: 20px; /* 內邊距 */
-        border: 1px solid #ccc; /* 邊框 */
-        border-radius: 5px; /* 圓角 */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
-        max-width: 400px; /* 最大寬度 */
-        margin: 70px 20px 0 auto; /* 調整邊距以確保垂直置中、水平靠右 */
+        /**12. static常見的置中手法  */
+        margin: 20px auto 0 auto;
+        /* 偏移最左距離到邊界 偏離最右距離到邊界 */
       }
 
-      .form-group {
-        /*text-align: right;  文字右對齊 */
-        margin-bottom: 20px; /* 調整底邊距 */
-      }
-      .btn-group {
+      .form-group .btn-group {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        /***13. 將按鈕垂直排列 */
       }
 
-      .form-group button {
-        width: 100%; /* 讓按鈕寬度佔滿父元素 */
+      .form-group .btn-group button {
+        width: 100%;
         margin-top: 2px;
       }
 
-      /*   .form-group button + button {
-           margin-top: 5px; 調整第二個按鈕的上邊距 
-      }*/
-      .label {
-        color: #ffffff;
+      .form-group .btn-group button+button {
+        margin-top: 5px;
       }
-      .form-group label {
-        color: #ffffff;
-        margin-bottom: 5px; /* 調整底邊距，縮短 LABEL 和輸入框之間的距離 */
-      }
-      /* 新增 footer 的樣式 */
+
       .footer {
-        position: fixed; /* 固定在頁面底部 */
-        bottom: 10px; /* 與底部的距離為 10 */
-        left: 50%; /* 水平置中 */
-        transform: translateX(-50%); /* 水平置中 */
-        width: 95%; /* 寬度不佔滿整個頁面 */
-        background-color: rgba(255, 255, 255, 0.9); /* 白 */
-        color: rgb(75, 75, 75); /* 白色字體 */
-        text-align: left; /* 文字置中 */
-        padding: 5px 5px 5px 15px; /* 內邊距 */
-        height: 40px;
+        height: 100px;
       }
-      /* 新增 media query，針對螢幕寬度小於 767px 的設備進行調整 */
-      @media (max-width: 767px) {
-        body {
-          align-items: flex-start; /* 垂直靠上 */
-        }
+    }
+  </style>
+  <title>Login Page</title>
+</head>
 
-        .logo {
-          max-width: 100%; /* 在手機模式下寬度 100% */
-          margin-left: 0; /* 移除左邊距 */
-        }
+<body>
+  <img src="public/img/logo01.png" alt="Logo" class="logo" />
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="ID">ID</label>
+        <input type="text" class="form-control" id="ID" placeholder="Enter your ID" />
+      </div>
+      <div class="form-group">
+        <label for="PASSWORD">PASSWORD</label>
+        <input type="PASSWORD" class="form-control" id="PASSWORD" placeholder="Enter your PASSWORD" />
+      </div>
+      <div class="form-group">
+        <label for="Verify">Verify</label>
+        <input type="Verify" class="form-control" id="Verify" placeholder="Enter your Verify" />
+      </div>
+      <div class="form-group">
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    <p>Copyright© All Rights Reserved by Evergreen Logistics Corp &nbsp;&nbsp;&nbsp; <a href="#"
+        onClick="openLegalTerm('<%=encodeForJavaScript(p)%>')">Legal Terms of Use</a> | <a href="#"
+        onClick="openCopyright('<%=encodeForJavaScript(p)%>')">Copyright</a> | <a href="#"
+        onClick="openPrivacy('<%=encodeForJavaScript(p)%>')">Privacy Policy</a></p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 
-        .container {
-          margin: 20px auto 0 auto; /* 移除左右邊距，增加上邊距，以免手機模式下被裁切 */
-        }
-        .form-group .btn-group {
-          display: flex;
-          flex-direction: column; /* 將按鈕垂直排列 */
-        }
-        .form-group .btn-group button {
-          width: 100%;
-          margin-top: 2px;
-        }
-        .form-group .btn-group button + button {
-          margin-top: 5px;
-        }
-        .footer {
-          height: 100px;
-        }
-      }
-    </style>
-    <title>Login Page</title>
-  </head>
-  <body>
-    <img src="public/img/logo01.png" alt="Logo" class="logo" />
-    <div class="container">
-      <form>
-        <div class="form-group">
-          <label for="ID">ID</label>
-          <input type="text" class="form-control" id="ID" placeholder="Enter your ID" />
-        </div>
-        <div class="form-group">
-          <label for="PASSWORD">PASSWORD</label>
-          <input type="PASSWORD" class="form-control" id="PASSWORD" placeholder="Enter your PASSWORD" />
-        </div>
-        <div class="form-group">
-          <label for="Verify">Verify</label>
-          <input type="Verify" class="form-control" id="Verify" placeholder="Enter your Verify" />
-        </div>
-        <div class="form-group">
-          <div class="btn-group">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <button type="submit" class="btn btn-primary">Reset</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="footer">
-      <p>Copyright© All Rights Reserved by Evergreen Logistics Corp &nbsp;&nbsp;&nbsp; <a href="#" onClick="openLegalTerm('<%=encodeForJavaScript(p)%>')">Legal Terms of Use</a> | <a href="#" onClick="openCopyright('<%=encodeForJavaScript(p)%>')">Copyright</a> | <a href="#" onClick="openPrivacy('<%=encodeForJavaScript(p)%>')">Privacy Policy</a></p>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
 </html>
